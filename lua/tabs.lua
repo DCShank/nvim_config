@@ -1,6 +1,6 @@
 require("bufferline").setup {
     options = {
-        mode = "buffers",
+        mode = "tabs",
 
         offsets = {
             {

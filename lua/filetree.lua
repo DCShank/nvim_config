@@ -1,3 +1,7 @@
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local function my_on_attach(bufnr)
     local api = require("nvim-tree.api")
 
@@ -73,8 +77,14 @@ end
 
 require("nvim-tree").setup {
     on_attach = my_on_attach,
+    tab = {
+        sync = {
+            open = true,
+            close = true
+        }
+    }
 }
 
+-- Add toggle nvim tree outside of the sidebar
 local api = require("nvim-tree.api")
-
 vim.keymap.set("n", "<F2>", api.tree.toggle, { desc = "Toggle Nvim-Tree" })
