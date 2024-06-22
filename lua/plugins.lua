@@ -41,6 +41,9 @@ return require("packer").startup(function(use)
         end,
     }
 
+    -- Adds git integration to the sidebar
+    use "lewis6991/gitsigns.nvim"
+
     -- Language server settings
     use "neovim/nvim-lspconfig"
 
