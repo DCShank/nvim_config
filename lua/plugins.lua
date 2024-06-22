@@ -55,6 +55,10 @@ return require("packer").startup(function(use)
         end,
     }
 
+    -- Paired character creation/deletion ("", {}, etc)
+    use "windwp/nvim-autopairs"
+    use "windwp/nvim-ts-autotag"
+
     -- Autocompletion
     use "hrsh7th/nvim-cmp"
     use 'hrsh7th/cmp-nvim-lsp'
