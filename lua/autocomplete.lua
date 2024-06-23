@@ -91,7 +91,7 @@ require('lspconfig')['tailwindcss'].setup {
 require('lspconfig')['ruff'].setup {
     capabilities = capabilities
 }
-require 'lspconfig'.lua_ls.setup {
+require('lspconfig')['lua_ls'].setup {
     capabilities = capabilities,
     on_init = function(client)
         local path = client.workspace_folders[1].name
@@ -122,4 +122,24 @@ require 'lspconfig'.lua_ls.setup {
     settings = {
         Lua = {}
     }
+}
+require('lspconfig')['cssls'].setup {
+    capabilities = capabilities,
+    settings = {
+        css = { validate = true,
+            lint = {
+                unknownAtRules = "ignore"
+            }
+        },
+        scss = { validate = true,
+            lint = {
+                unknownAtRules = "ignore"
+            }
+        },
+        less = { validate = true,
+            lint = {
+                unknownAtRules = "ignore"
+            }
+        },
+    },
 }
