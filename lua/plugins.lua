@@ -27,10 +27,7 @@ return require("packer").startup(function(use)
     use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
     -- Colorschemes
-    use "ellisonleao/gruvbox.nvim"
-    use "shatur/neovim-ayu"
-    use { "srcery-colors/srcery-vim", as = "srcery" }
-    use "rebelot/kanagawa.nvim"
+    use { "dcshank/shpellcraft.nvim", as = "shpellcraft" }
 
     -- Treesitter Syntax highlighting
     use {
