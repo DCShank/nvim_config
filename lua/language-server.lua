@@ -1,9 +1,3 @@
--- local lspconfig = require("lspconfig")
--- lspconfig.rust_analyzer.setup {} -- comment out if we want to integrate rustaceanvim
--- lspconfig.pyright.setup {}
--- lspconfig.angularls.setup {}
--- lspconfig.vtsls.setup{}
-
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float) -- Space-e opens diagnostic message
@@ -22,21 +16,21 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf }
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)                    -- gD go to declaration
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)                     -- gd go to definition
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)                           -- K ??? Seems to go to docs! USEFUL
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)                 -- gi go to implementation? related to interfaces?
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)              -- Ctrl-k ???
-        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)    -- Space-wa ???
-        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts) -- Space-wr ???
-        vim.keymap.set('n', '<space>wl', function()                                 -- Space-wl ???
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+        vim.keymap.set('n', '<space>wl', function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, opts)
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)       -- Space-D go to type definition
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)               -- Space-rn rename variable
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts) -- Space-ca offers code options to fix errors
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)                  -- gr go to references?
-        vim.keymap.set('n', '<space>f', function()                               -- Space-f corrects formatting in buffer
+        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        vim.keymap.set('n', '<space>f', function()
             vim.lsp.buf.format { async = true }
         end, opts)
     end,
