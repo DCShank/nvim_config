@@ -68,6 +68,9 @@ return require("packer").startup(function(use)
 
     use 'norcalli/nvim-colorizer.lua'
 
+    -- Folding
+    use { use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' } }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
