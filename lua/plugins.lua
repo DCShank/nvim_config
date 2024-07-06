@@ -95,6 +95,10 @@ return require("packer").startup(function(use)
         run = 'make' -- This is written in C and they don't ship binaries so it needs to be compiled
         -- this feels like a serious security issue but for now we leave it
     }
+
+    -- add bar to show the function context you are in
+    use { 'nvim-treesitter/nvim-treesitter-context' }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
