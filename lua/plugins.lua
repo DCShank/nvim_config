@@ -18,13 +18,23 @@ return require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
     -- lualine Powerline
-    use { "nvim-lualine/lualine.nvim", requires = { "Kyazdani42/nvim-web-devicons", opt = true } }
+    use {
+        "nvim-lualine/lualine.nvim",
+        requires = { "Kyazdani42/nvim-web-devicons", opt = true }
+    }
 
     use "nvim-tree/nvim-web-devicons"
     -- nvimtree File explorer
-    use { "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } }
+    use {
+        "nvim-tree/nvim-tree.lua",
+        requires = { "nvim-tree/nvim-web-devicons" }
+    }
 
-    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+    use {
+        'akinsho/bufferline.nvim',
+        tag = "*",
+        requires = 'nvim-tree/nvim-web-devicons'
+    }
 
     -- Colorschemes
     use { "dcshank/shpellcraft.nvim", as = "shpellcraft" }
@@ -69,8 +79,22 @@ return require("packer").startup(function(use)
     use 'norcalli/nvim-colorizer.lua'
 
     -- Folding
-    use { use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' } }
+    use {
+        'kevinhwang91/nvim-ufo',
+        requires = 'kevinhwang91/promise-async'
+    }
 
+    -- Fuzzy Finding
+    use {
+        'nvim-telescope/telescope.nvim',
+        branch = '0.1.x',
+        requires = 'nvim-lua/plenary.nvim',
+    }
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make' -- This is written in C and they don't ship binaries so it needs to be compiled
+        -- this feels like a serious security issue but for now we leave it
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
