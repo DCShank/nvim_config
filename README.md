@@ -19,18 +19,18 @@ Fairly easy.
 
 ### Enhance the keybindings for the many plugins
 
-[ ] Update filetree bindings to more closely match what you would expect from vim, treating the lines as _text_
+- [ ] Update filetree bindings to more closely match what you would expect from vim, treating the lines as _text_
 
-This would look like, e.g. `o` would open a new line below, which would translate to creating a new file!
+  This would look like, e.g. `o` would open a new line below, which would translate to creating a new file!
 
-[ ] Pick a good leader key, and update _most_ keymappings to use it instead of `<Ctrl>`, or `<Space>`, or `g` as a prefix.
-[ ] Pick a small group of important functions to assign to give `<Ctrl>`, `]`, or `g` as a prefix. _Maybe_ `<Space>`
+- [ ] Pick a good leader key, and update _most_ keymappings to use it instead of `<Ctrl>`, or `<Space>`, or `g` as a prefix.
+- [ ] Pick a small group of important functions to assign to give `<Ctrl>`, `]`, or `g` as a prefix. _Maybe_ `<Space>`
 
 ### Add git support, particularly to filetree
 
-[ ] Identify a git support plugin
-[ ] Install git support plugin and configure it
-[ ] Add keybindings for filetree
+- [ ] Identify a git support plugin
+- [ ] Install git support plugin and configure it
+- [ ] Add keybindings for filetree
 
 ### Enhance tab support
 
