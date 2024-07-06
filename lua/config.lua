@@ -20,3 +20,7 @@ vim.keymap.set("n", "<C-L>", "<C-W>l", { noremap = true, silent = true, nowait =
 
 -- Set LSP log level to reduce disk usage and prevent performance degradation
 vim.lsp.set_log_level("WARN")
+
+-- Moving up and down doesn't line wrap for lines longer than the screen
+vim.keymap.set({"n", "v"}, "j", "gj", { noremap = true, silent = true, nowait = true })
+vim.keymap.set({"n", "v"}, "k", "gk", { noremap = true, silent = true, nowait = true })
