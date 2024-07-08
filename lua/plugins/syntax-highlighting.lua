@@ -1,4 +1,13 @@
-require 'nvim-treesitter.configs'.setup {
+local Syntax = { 'nvim-treesitter/nvim-treesitter' }
+
+Syntax.main = 'nvim-treesitter.configs'
+
+function Syntax.build()
+    local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+    ts_update()
+end
+
+Syntax.opts = {
     -- A list of parser names, or "all"
     ensure_installed = {
         "bash", "c", "c_sharp", "comment", "commonlisp", "cpp",
@@ -25,3 +34,4 @@ require 'nvim-treesitter.configs'.setup {
         enable = true
     },
 }
+return Syntax

@@ -12,6 +12,9 @@ vim.opt.autoindent = true
 vim.opt.number = true
 vim.opt.ttyfast = true
 
+-- Statusline will show mode
+vim.opt.showmode = false
+
 -- Set LSP log level to reduce disk usage and prevent performance degradation
 vim.lsp.set_log_level("WARN")
 

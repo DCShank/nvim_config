@@ -1,3 +1,5 @@
+local Colorpicker = {'norcalli/nvim-colorizer.lua'}
+
 local options = {
     RGB      = true,      -- #RGB hex codes
     RRGGBB   = true,      -- #RRGGBB hex codes
@@ -11,7 +13,10 @@ local options = {
     mode     = 'background', -- Set the display mode.
 
 }
-require("colorizer").setup {
+
+Colorpicker.opts = {
     css = options,
     javascript = options,
 }
+
+return Colorpicker

@@ -1,4 +1,12 @@
-require("bufferline").setup {
+local Tabs = { 'akinsho/bufferline.nvim' }
+
+Tabs.dependencies = {
+    { 'nvim-tree/nvim-web-devicons' }
+}
+
+Tabs.version = "*"
+
+opts = {
     options = {
         mode = "tabs",
 
@@ -32,3 +40,4 @@ require("bufferline").setup {
     }
 
 }
+return Tabs
