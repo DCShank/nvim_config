@@ -9,6 +9,7 @@ Autocomplete.dependencies = {
     { 'hrsh7th/vim-vsnip' },
     { 'hrsh7th/cmp-vsnip' },
     { 'kevinhwang91/nvim-ufo' },
+    { "windwp/nvim-autopairs" },
 }
 
 Autocomplete.event = {
@@ -24,6 +25,7 @@ function Autocomplete.config()
     -- shortmess is used to avoid excessive messages
     vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     local cmp = require 'cmp'
     cmp.setup({
         snippet = {
@@ -81,6 +83,10 @@ function Autocomplete.config()
             { name = 'vsnip',                  keyword_length = 2 },
         }
     })
+    cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+    )
 end
 
 return Autocomplete

@@ -2,10 +2,6 @@ local LSPConfig = { "neovim/nvim-lspconfig" }
 
 LSPConfig.dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
-    {
-        "pmizio/typescript-tools.nvim",
-        dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    }
 }
 
 LSPConfig.cmd = { 'LspInfo', 'LspInstall', 'LspUnInstall' }
@@ -78,13 +74,7 @@ function LSPConfig.config()
     require('lspconfig')['angularls'].setup {
         capabilities = capabilities
     }
-    --require('lspconfig')['vtsls'].setup {
-    --    capabilities = capabilities
-    --}
     require('lspconfig')['eslint'].setup {
-        capabilities = capabilities
-    }
-    require("typescript-tools").setup {
         capabilities = capabilities
     }
     require('lspconfig')['tailwindcss'].setup {
