@@ -33,6 +33,8 @@ function LSPConfig.config()
     vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
+            --local ufo = require('ufo')
+            --ufo.detach(ev.buf)
             -- Enable completion triggered by <c-x><c-o>
             vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
@@ -56,6 +58,7 @@ function LSPConfig.config()
             vim.keymap.set('n', '<space>f', function()
                 vim.lsp.buf.format { async = true }
             end, opts)
+            --ufo.attach(ev.buf)
         end,
     })
 

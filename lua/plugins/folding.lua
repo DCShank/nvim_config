@@ -2,11 +2,12 @@ local Folding = { 'kevinhwang91/nvim-ufo' }
 -- configures folding, primarily through the nvim-ufo plugin
 Folding.dependencies = {
     { 'kevinhwang91/promise-async' },
-    --{ 'neovim/nvim-lspconfig' },
     --{ 'nvim-treesitter/nvim-treesitter' }
 }
 
-Folding.event = { 'BufReadPre', 'BufNewFile' }
+--Folding.event = { 'BufReadPre', 'BufNewFile' }
+--Temporary fix to make it stop failing due to a race condition with the LSP
+Folding.event = { 'LspAttach' }
 
 Folding.keys = {
     { 'zR',             require('ufo').openAllFolds,  mode = 'n' },
@@ -31,6 +32,10 @@ Folding.opts = {
 }
 
 --function Folding.config()
+--    vim.o.foldcolumn = '0' -- '0' is not bad
+--    vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+--    vim.o.foldlevelstart = 99
+--    vim.o.foldenable = true
 --    -- Using ufo provider need remap `zR` and `zM`
 --    vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 --    vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
