@@ -239,9 +239,11 @@ likewise for `\`` and `'`
 
 ## Personal Keybindings
 
+### 
+
 `<Alt+[hjkl]>` Move to split in corresponding direction
 
-Used commands and leaders so far:
+### Used Commands and Leaders
 
 `abcdefghijklmonpqrstuvwxyz`
 `ABCDEFGHIJLMNOPQRSTUVWXYZ`
@@ -252,5 +254,66 @@ Used commands and leaders so far:
 `<Esc>`
 `<Ctrl+[rBDFOUV]>`
 
-free basic characters:
+### free basic characters:
 `K`
+
+## Plugins
+
+### Filetree
+
+I tried to match normal vim editing as much as possible
+
+`<F2>` Toggle open/close filetree
+`?` List keybindings
+
+`<Space>` Open a file or directory, or close a directory. CD to parent directory
+`i` Open a file or directory, or close a directory
+`I` Open a file in a new tab
+`a` Open a file in a vertical split
+`A` Open a file in a horizontal split
+
+`<CR>` Open a file, or CD into a directory
+`-` CD to parent directory
+`<BS>` Close directory
+
+`o` Create a file or directory
+
+`Y` Copy File (marks a file to be copied in the treesitter clipboard)
+
+`yy` Copy the absolute path
+`yp` Copy the absolute path
+`yf` Copy the filename
+`yr` Copy the relative path
+
+`p` Paste a file from the clipboard
+
+`d` Delete a file
+
+`x` Cuts/marks a file to be moved
+
+`r` Rename the basename. Excludes the extension from the rename
+`R` Rename omitting the whole file name but including the absolute path
+
+`m` Bookmark (mark) the file
+`bm` Move bookmarked files
+`bd` Delete bookmarked files
+
+`zO` Expand all directories
+`zM` Collapse all
+
+`[g` Git previous
+`]g` Git next
+
+TODO Add git integration stuff possibly
+Add file to git index (ga)
+Remove file from git index (gr)
+Git checkout (gc)
+Git commit (gw)
+Git pull (gp)
+Git push (gP)
+Git fetch (gf)
+Git checkout branch (gb -> git checkout -b)
+
+TODO figure out a good leader for filtering
+Toggle Filter: Dotfiles () 
+Toggle Filter: Git Ignore ()
