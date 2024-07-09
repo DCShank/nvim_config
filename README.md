@@ -5,21 +5,14 @@ This is my config for Neovim.
 
 Fairly easy.
 1. Clone this repository into your `~/.config/nvim/` directory, or wherever you have your Neovim configuration setup
-2. Install language servers for any languages you want to have enabled.
-   1. I recommend installing all language servers that are enabled in the `language-server.lua` file.
-   2. Language servers should be installed through the recommended means in their documentation.
-
-      Generally this will be either installing through your package manager or installing through the package manager for that language.
-      Or sometimes Npm.
-
-   3. If you want to install more language servers, you will need to add them to `language-server.lua`.
-3. Install the treesitter compiler, or disable automatically adding languages to the syntax tree.
+2. Language servers are downloaded and installed automatically if they've been added to the list of ensured servers in `language-server.lua`
+3. Install the treesitter compiler, or disable automatically adding languages to the syntax tree. TODO make this install itself automatically
 
 ## TODOs
 
 ### Enhance the keybindings for the many plugins
 
-- [ ] Update filetree bindings to more closely match what you would expect from vim, treating the lines as _text_
+- [x] Update filetree bindings to more closely match what you would expect from vim, treating the lines as _text_
 
   This would look like, e.g. `o` would open a new line below, which would translate to creating a new file!
 
