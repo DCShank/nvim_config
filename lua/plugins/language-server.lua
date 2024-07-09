@@ -64,9 +64,6 @@ function LSPConfig.config()
         end,
     })
 
-
-
-    local lspconfig = require('lspconfig')
     -- Set up lspconfig.
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
     capabilities.textDocument.foldingRange = {
@@ -90,7 +87,7 @@ function LSPConfig.config()
     require('mason-lspconfig').setup_handlers {
         -- Default handler
         function(server_name)
-            require('lspconfig')[server_name].setup() {
+            require('lspconfig')[server_name].setup {
                 capabilities = capabilities
             }
         end,
