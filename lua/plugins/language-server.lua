@@ -2,6 +2,8 @@ local LSPConfig = { "neovim/nvim-lspconfig" }
 
 LSPConfig.dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
+    { 'williamboman/mason.nvim' },
+    { 'williamboman/mason-lspconfig.nvim' },
 }
 
 LSPConfig.cmd = { 'LspInfo', 'LspInstall', 'LspUnInstall' }
@@ -62,81 +64,94 @@ function LSPConfig.config()
         end,
     })
 
+
+
+    local lspconfig = require('lspconfig')
     -- Set up lspconfig.
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
     capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
         lineFoldingOnly = true
     }
-    require('lspconfig')['rust_analyzer'].setup {
-        capabilities = capabilities
-    }
-    require('lspconfig')['pyright'].setup {
-        capabilities = capabilities
-    }
-    require('lspconfig')['angularls'].setup {
-        capabilities = capabilities
-    }
-    require('lspconfig')['eslint'].setup {
-        capabilities = capabilities
-    }
-    require('lspconfig')['tailwindcss'].setup {
-        capabilities = capabilities
-    }
-    require('lspconfig')['ruff'].setup {
-        capabilities = capabilities
-    }
-    require('lspconfig')['lua_ls'].setup {
-        capabilities = capabilities,
-        on_init = function(client)
-            local path = client.workspace_folders[1].name
-            if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
-                return
-            end
-
-            client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-                runtime = {
-                    -- Tell the language server which version of Lua you're using
-                    -- (most likely LuaJIT in the case of Neovim)
-                    version = 'LuaJIT'
-                },
-                -- Make the server aware of Neovim runtime files
-                workspace = {
-                    checkThirdParty = false,
-                    library = {
-                        vim.env.VIMRUNTIME
-                        -- Depending on the usage, you might want to add additional paths here.
-                        -- "${3rd}/luv/library"
-                        -- "${3rd}/busted/library",
-                    }
-                    -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-                    --library = vim.api.nvim_get_runtime_file("", true)
-                }
-            })
-        end,
-        settings = {
-            Lua = {}
+    require('mason-lspconfig').setup({
+        ensure_installed = {
+            'rust_analyzer',
+            'pyright',
+            'angularls',
+            'eslint',
+            'tailwindcss',
+            'ruff',
+            'lua_ls',
+            'cssls',
+            'tsserver'
         }
-    }
-    require('lspconfig')['cssls'].setup {
-        capabilities = capabilities,
-        settings = {
-            css = { validate = true,
-                lint = {
-                    unknownAtRules = "ignore"
+    })
+
+    require('mason-lspconfig').setup_handlers {
+        -- Default handler
+        function(server_name)
+            require('lspconfig')[server_name].setup() {
+                capabilities = capabilities
+            }
+        end,
+
+        ['lua_ls'] = function()
+            require('lspconfig')['lua_ls'].setup {
+                capabilities = capabilities,
+                on_init = function(client)
+                    local path = client.workspace_folders[1].name
+                    if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+                        return
+                    end
+
+                    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                        runtime = {
+                            -- Tell the language server which version of Lua you're using
+                            -- (most likely LuaJIT in the case of Neovim)
+                            version = 'LuaJIT'
+                        },
+                        -- Make the server aware of Neovim runtime files
+                        workspace = {
+                            checkThirdParty = false,
+                            library = {
+                                vim.env.VIMRUNTIME
+                                -- Depending on the usage, you might want to add additional paths here.
+                                -- "${3rd}/luv/library"
+                                -- "${3rd}/busted/library",
+                            }
+                            -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+                            --library = vim.api.nvim_get_runtime_file("", true)
+                        }
+                    })
+                end,
+                settings = {
+                    Lua = {}
                 }
-            },
-            scss = { validate = true,
-                lint = {
-                    unknownAtRules = "ignore"
-                }
-            },
-            less = { validate = true,
-                lint = {
-                    unknownAtRules = "ignore"
-                }
-            },
-        },
+            }
+        end,
+
+        ['cssls'] = function()
+            require('lspconfig')['cssls'].setup {
+                capabilities = capabilities,
+                settings = {
+                    css = { validate = true,
+                        lint = {
+                            unknownAtRules = "ignore"
+                        }
+                    },
+                    scss = { validate = true,
+                        lint = {
+                            unknownAtRules = "ignore"
+                        }
+                    },
+                    less = { validate = true,
+                        lint = {
+                            unknownAtRules = "ignore"
+                        }
+                    },
+                },
+            }
+        end
     }
 end
 
