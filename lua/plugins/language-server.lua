@@ -72,15 +72,36 @@ function LSPConfig.config()
     }
     require('mason-lspconfig').setup({
         ensure_installed = {
-            'rust_analyzer',
-            'pyright',
-            'angularls',
-            'eslint',
+            -- C
+            'clangd',
+            -- C#
+            'csharp_ls',
+            -- CMake
+            'neocmake',
+            -- CSS
             'tailwindcss',
-            'ruff',
-            'lua_ls',
             'cssls',
-            'tsserver'
+            -- Java
+            --'java_language_server',
+            -- Javascript
+            'eslint',
+            -- Lua
+            'lua_ls',
+            -- Make
+            'autotools_ls',
+            -- Markdown
+            'marksman',
+            -- Python
+            'basedpyright',
+            'ruff_lsp',
+            -- Rust
+            'rust_analyzer',
+            -- TOML
+            'taplo',
+            -- Typescript
+            'tsserver',
+            -- YAML
+            'yamlls',
         }
     })
 
