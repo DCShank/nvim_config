@@ -2,6 +2,8 @@
 
 This is intended to document my most used existing and new commands
 
+My leader key is `<Space>`
+
 ## Existing Commands
 
 Adding a record of vim commands that I use regularly, or want to remember to use.
