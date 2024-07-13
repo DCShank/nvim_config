@@ -85,15 +85,15 @@ function Filetree.config()
         vim.keymap.set('n', '[g', api.node.navigate.git.prev, opts('Git Prev'))
         vim.keymap.set('n', ']g', api.node.navigate.git.next, opts('Git Next'))
 
-        vim.keymap.set('n', 'F', api.live_filter.clear, opts('Live Filter: Clear'))
-        vim.keymap.set('n', 'f', api.live_filter.start, opts('Live Filter: Start'))
+        vim.keymap.set('n', 'fF', api.live_filter.clear, opts('Live Filter: Clear'))
+        vim.keymap.set('n', 'ff', api.live_filter.start, opts('Live Filter: Start'))
 
-        vim.keymap.set('n', 'B', api.tree.toggle_no_buffer_filter, opts('Toggle Filter: No Buffer'))
-        vim.keymap.set('n', 'H', api.tree.toggle_hidden_filter, opts('Toggle Filter: Dotfiles'))
-        vim.keymap.set('n', 'U', api.tree.toggle_custom_filter, opts('Toggle Filter: Hidden'))
-        vim.keymap.set('n', 'M', api.tree.toggle_no_bookmark_filter, opts('Toggle Filter: No Bookmark'))
-        vim.keymap.set('n', 'I', api.tree.toggle_gitignore_filter, opts('Toggle Filter: Git Ignore'))
-        vim.keymap.set('n', 'C', api.tree.toggle_git_clean_filter, opts('Toggle Filter: Git Clean'))
+        vim.keymap.set('n', 'fB', api.tree.toggle_no_buffer_filter, opts('Toggle Filter: No Buffer'))
+        vim.keymap.set('n', 'fH', api.tree.toggle_hidden_filter, opts('Toggle Filter: Dotfiles'))
+        vim.keymap.set('n', 'fU', api.tree.toggle_custom_filter, opts('Toggle Filter: Hidden'))
+        vim.keymap.set('n', 'fM', api.tree.toggle_no_bookmark_filter, opts('Toggle Filter: No Bookmark'))
+        vim.keymap.set('n', 'fI', api.tree.toggle_gitignore_filter, opts('Toggle Filter: Git Ignore'))
+        vim.keymap.set('n', 'fC', api.tree.toggle_git_clean_filter, opts('Toggle Filter: Git Clean'))
         --vim.keymap.set('n', '<C-k>',   api.node.show_info_popup,            opts('Info'))
         --vim.keymap.set('n', ']e', api.node.navigate.diagnostics.next, opts('Next Diagnostic'))
         --vim.keymap.set('n', '[e', api.node.navigate.diagnostics.prev, opts('Prev Diagnostic'))
@@ -107,7 +107,7 @@ function Filetree.config()
         -- END_DEFAULT_ON_ATTACH
 
         vim.keymap.set("n", "<F2>", api.tree.toggle, opts("Toggle Nvim-Tree"))
-        -- TODO make below use a leader key mapping instead of control. Coordinate with code actions maybe
+        -- Can't make below use leader as my leader is <space> which conflicts with the filetree space for opening files
         vim.keymap.set("n", "<C-I>", api.node.show_info_popup, opts("Info"))
         vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
     end

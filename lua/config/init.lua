@@ -24,10 +24,10 @@ vim.keymap.set({"n", "v"}, "<A-j>", "<C-w>j", { noremap = true, silent = true, n
 vim.keymap.set({"n", "v"}, "<A-h>", "<C-w>h", { noremap = true, silent = true, nowait = true })
 vim.keymap.set({"n", "v"}, "<A-l>", "<C-w>l", { noremap = true, silent = true, nowait = true })
 -- And in terminal mode
-vim.keymap.set({"t"}, "<A-k>", "<C-\\><C-n><C-w>k", { noremap = true, silent = true, nowait = true })
-vim.keymap.set({"t"}, "<A-j>", "<C-\\><C-n><C-w>j", { noremap = true, silent = true, nowait = true })
-vim.keymap.set({"t"}, "<A-h>", "<C-\\><C-n><C-w>h", { noremap = true, silent = true, nowait = true })
-vim.keymap.set({"t"}, "<A-l>", "<C-\\><C-n><C-w>l", { noremap = true, silent = true, nowait = true })
+vim.keymap.set({"t"}, "<Ctrl-k>", "<C-\\><C-n><C-w>k", { noremap = true, silent = true, nowait = true })
+vim.keymap.set({"t"}, "<Ctrl-j>", "<C-\\><C-n><C-w>j", { noremap = true, silent = true, nowait = true })
+vim.keymap.set({"t"}, "<Ctrl-h>", "<C-\\><C-n><C-w>h", { noremap = true, silent = true, nowait = true })
+vim.keymap.set({"t"}, "<Ctrl-l>", "<C-\\><C-n><C-w>l", { noremap = true, silent = true, nowait = true })
 
 -- Moving up and down doesn't line wrap for lines longer than the screen
 vim.keymap.set({"n", "v"}, "j", "gj", { noremap = true, silent = true, nowait = true })
@@ -36,6 +36,7 @@ vim.keymap.set({"n", "v"}, "k", "gk", { noremap = true, silent = true, nowait = 
 -- Likewise for going to the start of the line
 vim.keymap.set({"n", "v"}, "0", "g0", { noremap = true, silent = true, nowait = true })
 vim.keymap.set({"n", "v"}, "^", "g^", { noremap = true, silent = true, nowait = true })
+vim.keymap.set({"n", "v"}, "<space>", "<nop>", { noremap = true, silent = true, nowait = true })
 
 -- Escape terminal via <ESC>
 vim.keymap.set({"t"}, "<Esc>", "<C-\\><C-N>", { noremap = true, silent = true, nowait = true })

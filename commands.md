@@ -314,6 +314,66 @@ Git push (gP)
 Git fetch (gf)
 Git checkout branch (gb -> git checkout -b)
 
-TODO figure out a good leader for filtering
+TODO add remaining filtering commands. Leader for filters is `f`
 Toggle Filter: Dotfiles () 
 Toggle Filter: Git Ignore ()
+
+### Other plugins
+
+#### Auto complete
+
+`<Tab>` Go to next suggested item
+`<S-Tab>` Go to previous suggested item
+`<Ctrl-F>`Scroll completion docs
+`<Ctrl-Shift-F>`Scroll completion docs backward
+`<Ctrl-Space>`Bring up completion menu at current cursor
+
+Exit suggestion menu
+`<Enter>`confirm suggestion
+
+#### Colorpicker
+
+no keybindings -- use directly from command mode. use `:help Colorizer` for more infor
+
+#### Folding
+
+`<Leader-Space>` Toggle fold
+
+
+#### Fuzzy finder
+
+`<Leader-ff>` Open telescope find files
+`<Leader-fg>` Open telescope live grep
+`<Leader-fb>` Open telescope search buffers
+`<Leader-fh>` Open telescope help tags
+`<Leader-ft>` Open telescope search git files
+
+#### LSP
+
+`<Leader-e>` Open diagnostic message (error message)
+`]d`Goto next diagnostic
+`[d`goto previous diagnostic
+`]e`Goto next diagnostic
+`[e`goto previous diagnostic
+`ge`list lsp diagnostic locations
+`<leader-q>` list lsp diagnostic locations
+
+(todo check what setloclist does)
+`gd` go to definition
+`gD` Go to declaration
+`gi` Go to implementation
+`gt` Go to type definition
+`gr` go to references menu
+TODO `<Esc>`Close references
+
+`K`Hover info
+`<leader-k>`Signature help
+
+`<Leader-wa>`Add workspace folder
+`<Leader-wr>`remove workspace folder
+`<Leader-wl>`list workspace folders
+
+`<Leader-R>`Rename variable/type/etc
+`<Leader-C>`Code actions menu
+
+`<Leader-F>`Format code

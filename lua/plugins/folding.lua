@@ -12,8 +12,7 @@ Folding.event = { 'LspAttach' }
 Folding.keys = {
     { 'zR',             require('ufo').openAllFolds,  mode = 'n' },
     { 'zM',             require('ufo').closeAllFolds, mode = 'n' },
-    { '<space>',        '<Nop>',                      mode = 'n' },
-    { '<space><space>', 'za',                         mode = 'n' },
+    { '<leader><space>', 'za',                         mode = 'n' },
 }
 
 local fold_text_handler = function(virtText, lnum, endLnum, width, truncate)

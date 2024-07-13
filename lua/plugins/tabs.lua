@@ -6,7 +6,7 @@ Tabs.dependencies = {
 
 Tabs.version = "*"
 
-opts = {
+Tabs.opts = {
     options = {
         mode = "tabs",
 
