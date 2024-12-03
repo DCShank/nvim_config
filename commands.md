@@ -243,7 +243,7 @@ likewise for `\`` and `'`
 
 ### 
 
-`<Alt+[hjkl]>` Move to split in corresponding direction
+`<Ctrl+[hjkl]>` Move to split in corresponding direction
 
 ### Used Commands and Leaders
 

@@ -98,13 +98,13 @@ function LSPConfig.config()
             'marksman',
             -- Python
             'basedpyright',
-            'ruff_lsp',
+            'ruff',
             -- Rust
             'rust_analyzer',
             -- TOML
             'taplo',
             -- Typescript
-            'tsserver',
+            'ts_ls',
             -- YAML
             'yamlls',
         }

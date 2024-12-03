@@ -18,7 +18,7 @@ vim.opt.showmode = false
 -- Set LSP log level to reduce disk usage and prevent performance degradation
 vim.lsp.set_log_level("WARN")
 
--- Quicker split switching using <Alt>
+-- Quicker split switching using <Ctrl>
 vim.keymap.set({"n", "v"}, "<C-k>", "<C-w>k", { noremap = true, silent = true, nowait = true })
 vim.keymap.set({"n", "v"}, "<C-j>", "<C-w>j", { noremap = true, silent = true, nowait = true })
 vim.keymap.set({"n", "v"}, "<C-h>", "<C-w>h", { noremap = true, silent = true, nowait = true })
