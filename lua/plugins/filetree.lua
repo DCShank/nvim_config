@@ -11,27 +11,16 @@ function Filetree.config()
 
     local function on_attach(bufnr)
         local api = require("nvim-tree.api")
-        local lib = require("nvim-tree.lib")
 
-        --- Stolen shamelessly from the treesitter code.
-        ---Inject the node as the first argument if absent.
-        ---@param fn function function to invoke
-        local function wrap_node(fn)
-            return function(node, ...)
-                node = node or lib.get_node_at_cursor()
-                if node then
-                    fn(node, ...)
-                end
-            end
-        end
-
-        local cd_or_open = wrap_node(function(node)
+        local function cd_or_open()
+            local node = api.tree.get_node_under_cursor()
             if node.nodes then
                 return api.tree.change_root_to_node(node)
             else
                 api.node.open.edit(node)
             end
-        end)
+        end
+
 
         local function opts(desc)
             return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
