@@ -19,10 +19,10 @@ vim.opt.showmode = false
 vim.lsp.set_log_level("WARN")
 
 -- Quicker split switching using <Alt>
-vim.keymap.set({"n", "v"}, "<A-k>", "<C-w>k", { noremap = true, silent = true, nowait = true })
-vim.keymap.set({"n", "v"}, "<A-j>", "<C-w>j", { noremap = true, silent = true, nowait = true })
-vim.keymap.set({"n", "v"}, "<A-h>", "<C-w>h", { noremap = true, silent = true, nowait = true })
-vim.keymap.set({"n", "v"}, "<A-l>", "<C-w>l", { noremap = true, silent = true, nowait = true })
+vim.keymap.set({"n", "v"}, "<C-k>", "<C-w>k", { noremap = true, silent = true, nowait = true })
+vim.keymap.set({"n", "v"}, "<C-j>", "<C-w>j", { noremap = true, silent = true, nowait = true })
+vim.keymap.set({"n", "v"}, "<C-h>", "<C-w>h", { noremap = true, silent = true, nowait = true })
+vim.keymap.set({"n", "v"}, "<C-l>", "<C-w>l", { noremap = true, silent = true, nowait = true })
 -- And in terminal mode
 vim.keymap.set({"t"}, "<Ctrl-k>", "<C-\\><C-n><C-w>k", { noremap = true, silent = true, nowait = true })
 vim.keymap.set({"t"}, "<Ctrl-j>", "<C-\\><C-n><C-w>j", { noremap = true, silent = true, nowait = true })
