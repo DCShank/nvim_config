@@ -18,10 +18,10 @@ FuzzyFinder.keys = {
             previewer = false
         }
     end,  desc = "Find files", mode = 'n' },
-    { '<leader>fg', require('telescope.builtin').live_grep, desc = "Live Grep",        mode = 'n' },
-    { '<leader>fb', require('telescope.builtin').buffers,   desc = "Search buffers",   mode = 'n' },
-    { '<leader>fh', require('telescope.builtin').help_tags, desc = "Help tags",        mode = 'n' },
-    { '<leader>ft', require('telescope.builtin').git_files, desc = "Search Git Files", mode = 'n' },
+    { '<leader>fg', function(...) require('telescope.builtin').live_grep(...) end, desc = "Live Grep",        mode = 'n' },
+    { '<leader>fb', function(...) require('telescope.builtin').buffers(...) end,   desc = "Search buffers",   mode = 'n' },
+    { '<leader>fh', function(...) require('telescope.builtin').help_tags(...) end, desc = "Help tags",        mode = 'n' },
+    { '<leader>ft', function(...) require('telescope.builtin').git_files(...) end, desc = "Search Git Files", mode = 'n' },
 
 }
 
